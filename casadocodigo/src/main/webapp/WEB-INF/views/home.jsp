@@ -62,13 +62,15 @@
 		<ul class="clearfix book-collection">
 
 			<!-- AQUI USE c:forEach -->
+			<c:forEach items="${produtos }" var="produto">
 				<li>
-					<a href="URL DO DETALHE DO PRODUTO" class="block clearfix">
-					<h2 class="product-title">TITULO DO PRODUTO</h2> 
+					<a href="${s:mvcUrl('PC#detalhe').arg(0, produto.id).build() }" class="block clearfix">
+					<h2 class="product-title">${produto.titulo}</h2> 
 					<img width="143" height="202" src="https://cdn.shopify.com/s/files/1/0155/7645/products/java8-featured_large.png?v=1411490181" alt="Java 8 Prático" title="Java 8 Prático" /> 
 					<small class="buy-button">Compre</small>
 					</a>
 				</li>
+			</c:forEach>
 			<!-- FIM DO c:forEach -->
 
 		</ul>
