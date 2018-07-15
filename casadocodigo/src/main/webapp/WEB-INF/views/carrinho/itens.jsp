@@ -58,6 +58,7 @@
 			        <tr>
 			        	<form action="${s:mvcUrl('PC#finalizar').build()}" method="post">
 				          <td colspan="3">
+				          
 				          	<input type="submit" class="checkout" name="checkout" value="Finalizar compra" />
 				          </td>			        	
 			        	</form>
