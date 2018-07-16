@@ -6,13 +6,13 @@
 
 <header id="layout-header">
 	<div class="clearfix container">
-		<a href="/casadocodigo" id="logo">
+		<a href="${s:mvcUrl('HC#index').build() }" id="logo">
 		</a>
 		<div id="header-content">
 			<nav id="main-nav">
 				
 				<ul class="clearfix">
-					<li><a href="/casadocodigo/carrinho" rel="nofollow">
+					<li><a href="${s:mvcUrl('CCC#itens').build() }" rel="nofollow">
 						<fmt:message key="menu.carrinho">
 							<fmt:param value="${carrinhoCompras.getQuantidade()}"/>
 						</fmt:message>

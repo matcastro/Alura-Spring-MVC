@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 public class JPAConfiguration {
 
 	@Bean
-	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
+	public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, Properties aditionalProperties) {
 		
 		LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
 		factoryBean.setPackagesToScan("br.com.casadocodigo.loja.models");
@@ -26,12 +26,14 @@ public class JPAConfiguration {
 		
 		JpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
 		factoryBean.setJpaVendorAdapter(jpaVendorAdapter);
-		factoryBean.setJpaProperties(aditionalProperties());
+		factoryBean.setJpaProperties(aditionalProperties);
 		
 		return factoryBean;
 	}
 
-	private Properties aditionalProperties() {
+	@Bean
+	@Profile("dev")
+	public Properties aditionalProperties() {
 		Properties props = new Properties();
 		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 		props.setProperty("hibernate.show_sql", "true");
@@ -41,7 +43,7 @@ public class JPAConfiguration {
 
 	@Bean
 	@Profile("dev")
-	private DataSource dataSource() {
+	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
