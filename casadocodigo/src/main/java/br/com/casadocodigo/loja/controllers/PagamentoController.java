@@ -42,7 +42,6 @@ public class PagamentoController {
 			restTemplate.postForObject(uri, new DadosPagamento(carrinho.getTotal()), String.class);
 			enviaEmailCompraProduto(usuario);
 			model.addFlashAttribute("sucesso", "Pagamento realizado com sucesso!");
-
 			carrinho.esvaziar();
 		} catch (HttpClientErrorException e) {
 			e.printStackTrace();

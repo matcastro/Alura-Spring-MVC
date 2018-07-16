@@ -125,8 +125,8 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter{
 	public MailSender mailSender() {
 		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
-		mailSender.setUsername("alura.springmvc@gmail.com");
-		mailSender.setPassword("alura2015");
+		mailSender.setUsername("email");
+		mailSender.setPassword("senha");
 		mailSender.setPort(587);
 		
 		Properties mailProperties = new Properties();
