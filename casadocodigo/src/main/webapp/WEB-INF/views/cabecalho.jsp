@@ -6,13 +6,13 @@
 
 <header id="layout-header">
 	<div class="clearfix container">
-		<a href="/" id="logo">
+		<a href="/casadocodigo" id="logo">
 		</a>
 		<div id="header-content">
 			<nav id="main-nav">
 				
 				<ul class="clearfix">
-					<li><a href="/carrinho" rel="nofollow">
+					<li><a href="/casadocodigo/carrinho" rel="nofollow">
 						<fmt:message key="menu.carrinho">
 							<fmt:param value="${carrinhoCompras.getQuantidade()}"/>
 						</fmt:message>
