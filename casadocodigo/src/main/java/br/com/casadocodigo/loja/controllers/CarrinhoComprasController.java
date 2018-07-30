@@ -21,10 +21,10 @@ import br.com.casadocodigo.loja.models.TipoPreco;
 public class CarrinhoComprasController {
 
 	@Autowired
-	ProdutoDAO produtoDAO;
+	private ProdutoDAO produtoDAO;
 	
 	@Autowired
-	CarrinhoCompras carrinhoCompras;
+	private CarrinhoCompras carrinhoCompras;
 	
 	@RequestMapping("/add")
 	public ModelAndView add(Integer produtoId, TipoPreco tipoPreco) {
@@ -40,8 +40,7 @@ public class CarrinhoComprasController {
 
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView itens() {
-		ModelAndView modelAndView = new ModelAndView("/carrinho/itens");
-		return modelAndView;
+		return new ModelAndView("carrinho/itens");
 	}
 	
 	@RequestMapping("/remover")
@@ -50,7 +49,7 @@ public class CarrinhoComprasController {
 		produto.setId(produtoId);
 		CarrinhoItem item = new CarrinhoItem(produto, tipo);
 		carrinhoCompras.remover(item);
-		return new ModelAndView("/carrinho/itens");
+		return new ModelAndView("carrinho/itens");
 	}
 	
 	private CarrinhoItem criaItem(Integer produtoId, TipoPreco tipoPreco) {
